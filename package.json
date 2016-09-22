@@ -2,7 +2,9 @@
   "name": "tipi-cli",
   "version": "1.0.0",
   "description": "Project scaffolding for the entitled JavaScript developer",
-  "bin": "./cli.js",
+  "bin": {
+    "tipi": "./cli.js"
+  },
   "scripts": {
     "start": "npm run test -- --watch",
     "test": "xo"

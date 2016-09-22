@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const meow = require('meow');
 const entries = require('lodash').entries;
 const padEnd = require('lodash/fp').padEnd;
