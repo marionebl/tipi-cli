@@ -2,9 +2,9 @@
 
 Project scaffolding for the entitled JavaScript developer.
 
-*  Simple
-*  Opinionated
-*  Best of class tools
+*  :rocket: Dead simple
+*  :heart: No choices, no fatigue
+*  :tada: Best of class tools
 
 
 ## Installation
