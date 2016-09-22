@@ -23,6 +23,8 @@ const isKnownFlag = flag => includes(flag, knownFlags);
 const isKnownUnknown = flag => includes(flag, unknownFlags);
 
 const cli = meow(`
+	Project scaffolding for the entitled JavaScript developer
+
 	Usage
 	  $ tipi <command> [options]
 
@@ -39,7 +41,7 @@ const cli = meow(`
 	  --name         Name of library defaults to [name]
 	  --node         Use node template, defaults to true
 	  --safeName     JS name to use, defaults to camelCased [name],
-		--template     Specify the tipi-template-[template] to use, default to node
+	  --template     Specify the tipi-template-[template] to use, default to node
 	  --user         Github username of author (default: computed),
 	  --year         Year of creation (default: current year),
 

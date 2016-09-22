@@ -21,7 +21,8 @@ npm install --global tipi-cli
 
 ```
 tipi-cli --help
-Project scaffolding for the entitled JavaScript developer
+
+  Project scaffolding for the entitled JavaScript developer
 
   Usage
     $ tipi <command> [options]
@@ -32,15 +33,16 @@ Project scaffolding for the entitled JavaScript developer
     update [name]  - update current project or at [name]
 
   Options
-    --cli          Use cli template
-    --node         Use node template (default: true)
     --author       Full name of author (default: git configuration),
-    --email        E-mail of author (default: git configuration)
-    --name         Name of library (default: [name])
-    --safeName     JS name to use (default camelCase(name)),
-    --user         Github username of auth (default: determined),
-    --year         Year of creation (default: current year),
+    --cli          Use cli template
     --description  Description to use in meta data
+    --email        E-mail of author defaults to git configuration.user.email
+    --name         Name of library defaults to [name]
+    --node         Use node template, defaults to true
+    --safeName     JS name to use, defaults to camelCased [name],
+    --template     Specify the tipi-template-[template] to use, default to node
+    --user         Github username of author (default: computed),
+    --year         Year of creation (default: current year),
 
   Examples
     $ tipi create library
