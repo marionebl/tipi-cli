@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run test -- --watch",
-    "test": "ava test/test-*.js"
+    "test": "xo && ava test/test-*.js",
+    "update": "tipi update"
   },
   "tipi": {
     "version": "${tipi:version}",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/marionebl/${name}#readme",
   "devDependencies": {
     "ava": "0.16.0",
-    "xo": "0.16.0"
+    "xo": "0.16.0",
+    "tipi": "1.0.0"
   }
 }
