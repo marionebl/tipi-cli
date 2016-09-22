@@ -1,0 +1,32 @@
+{
+  "name": "${name}",
+  "version": "1.0.0",
+  "description": "${description}",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run test -- --watch",
+    "test": "ava test/test-*.js"
+  },
+  "tipi": {
+    "version": "1.0.0",
+    "template": "cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/${user}/${name}.git"
+  },
+  "keywords": [],
+  "author": "${author} <${email}>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/${user}/${name}/issues"
+  },
+  "homepage": "https://github.com/${user}/${name}#readme",
+  "devDependencies": {
+    "ava": "0.16.0",
+    "xo": "0.16.0"
+  },
+  "dependencies": {
+    "meow": "3.7.0"
+  }
+}

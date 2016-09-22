@@ -1,0 +1,29 @@
+{
+  "name": "${name}",
+  "version": "1.0.0",
+  "description": "${description}",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run test -- --watch",
+    "test": "ava test/test-*.js"
+  },
+  "tipi": {
+    "version": "${tipi:version}",
+    "template": "${tipi:template}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marionebl/${name}.git"
+  },
+  "keywords": [],
+  "author": "${author}",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marionebl/${name}/issues"
+  },
+  "homepage": "https://github.com/marionebl/${name}#readme",
+  "devDependencies": {
+    "ava": "0.16.0",
+    "xo": "0.16.0"
+  }
+}
