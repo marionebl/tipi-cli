@@ -14,18 +14,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marionebl/${name}.git"
+    "url": "git+https://github.com/${user}/${name}.git"
   },
   "keywords": [],
-  "author": "${author}",
+  "author": "${author} <${email}>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/marionebl/${name}/issues"
+    "url": "https://github.com/${user}/${name}/issues"
   },
-  "homepage": "https://github.com/marionebl/${name}#readme",
+  "homepage": "https://github.com/${user}/${name}#readme",
   "devDependencies": {
     "ava": "0.16.0",
     "xo": "0.16.0",
-    "tipi": "1.0.0"
+    "tipi-cli": "1.0.0"
   }
 }
