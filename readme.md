@@ -1,6 +1,8 @@
-# tipi
+> Project scaffolding for the entitled JavaScript developer.
 
-Project scaffolding for the entitled JavaScript developer.
+# tipi [![stability][0]][1]
+
+[![npm version][6]][7] [![Travis branch][2]][3] [![AppVeyor branch][4]][5]
 
 *  :rocket: Dead simple
 *  :heart: No choices, no fatigue
@@ -47,3 +49,15 @@ Project scaffolding for the entitled JavaScript developer
     $ tipi create cli
     # create a node cli project at cli
 ```
+
+---
+Built by (c) Mario Nebl. Released under the MIT license.
+
+[0]: https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square
+[1]: https://nodejs.org/api/documentation.html#documentation_stability_index
+[2]: https://img.shields.io/travis/marionebl/tipi-cli/master.svg?style=flat-square
+[3]: https://travis-ci.org/marionebl/tipi-cli
+[4]: https://img.shields.io/appveyor/ci/marionebl/tipi-cli/master.svg?style=flat-square
+[5]: https://ci.appveyor.com/project/marionebl/tipi-cli
+[6]: https://img.shields.io/npm/v/tipi-cli.svg?style=flat-square
+[7]: https://npmjs.org/package/tipi-cli

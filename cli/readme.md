@@ -17,3 +17,6 @@ npm install --global ${name}
 const ${safeName} = require('${name}');
 ${safeName}();
 ```
+
+---
+Built by (c) ${author}. Released under the MIT license.
