@@ -8,6 +8,7 @@ const replaceStream = require('replacestream');
 const ncp = require('ncp');
 const getInfo = require('./info');
 const pkg = require('./package');
+
 const cwd = process.cwd();
 
 module.exports = create;
@@ -51,17 +52,17 @@ function create(input, flags) {
 			spinner.text = `encamped ${variant} at ${input}`;
 			spinner.succeed();
 		})
-		.catch(error => {
-			spinner.text = error.message;
+		.catch(err => {
+			spinner.text = err.message;
 			spinner.fail();
 		});
 }
 
 function copy(from, to, options) {
 	return new Promise((resolve, reject) => {
-		ncp(from, to, options, error => {
-			if (error) {
-				return reject(error);
+		ncp(from, to, options, err => {
+			if (err) {
+				return reject(err);
 			}
 			resolve();
 		});

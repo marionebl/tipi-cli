@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "npm run test -- --watch",
-    "test": "xo"
+    "test": "xo *.js"
   },
   "repository": {
     "type": "git",

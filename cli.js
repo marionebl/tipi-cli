@@ -60,12 +60,12 @@ const cli = meow(`
 });
 
 main(cli.input[0], cli.flags, cli.input[1])
-	.catch(error => {
-		if (!error || error.message === 'managed-error') {
+	.catch(err => {
+		if (!err || err.message === 'managed-error') {
 			process.exit(1); // eslint-disable-line xo/no-process-exit
 		}
 		setTimeout(() => {
-			throw error;
+			throw err;
 		});
 	});
 
@@ -83,7 +83,7 @@ function main(command, flags, input) {
 
 	if (!isKnownCommmand(command)) {
 		console.log(cli.help);
-		console.error(`\nunknown <command> ${command}. known commands ${knownCommands.join(', ')}`);
+		console.error(`\nunknown <command> ${command}. known commands: ${knownCommands.join(', ')}`);
 		return Promise.reject();
 	}
 
@@ -99,7 +99,7 @@ function main(command, flags, input) {
 		}
 		if (command === 'info') {
 			return info(input, flags)
-				.then((data) => {
+				.then(data => {
 					const rows = entries(data).filter(entry => Boolean(entry[1]));
 					const labelPad = padEnd(rows.map(row => row[0]).map(i => i.length).reduce((a, b) => a > b ? a : b) + 1);
 					rows.forEach(row => {
