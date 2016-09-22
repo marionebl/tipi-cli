@@ -1,0 +1,20 @@
+{
+  "name": "tipi-template-node",
+  "version": "1.0.0",
+  "description": "tipi template for node cli project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marionebl/tipi-cli.git"
+  },
+  "keywords": [
+    "tipi",
+    "tipi-template",
+    "cli"
+  ],
+  "author": "Mario Nebl <hello@herebecode.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marionebl/tipi-cli/issues"
+  },
+  "homepage": "https://github.com/marionebl/tipi-cli#readme"
+}

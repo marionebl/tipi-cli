@@ -1,28 +1,27 @@
-const assert = require('assert');
 const path = require('path');
-const exists = require('path-exists');
+const assert = require('assert');
 const entries = require('lodash').entries;
-const includes = require('lodash/fp').includes;
+const exists = require('path-exists');
 const ora = require('ora');
 const replaceStream = require('replacestream');
 const ncp = require('ncp');
-const getInfo = require('./info');
-const pkg = require('./package');
-
-const cwd = process.cwd();
+const getInfo = require('../info');
+const pkg = require('../package');
+const getTemplate = require('./get-template');
 
 module.exports = create;
 
-const variants = ['cli', 'node'];
-
 function create(input, flags) {
 	assert(input, 'target directory must be specified for <create>');
-	const variant = entries(flags).find(entry => includes(entry[0], variants) && entry[1]) || 'node';
-	const sourcePath = path.resolve(__dirname, variant);
-	const targetPath = path.resolve(cwd, input);
 	const spinner = ora().start();
+	const template = flags.template || 'node';
+	const targetPath = path.resolve(process.cwd(), input);
 
-	const checking = Promise.all([exists(targetPath), getInfo(input, flags)]);
+	const checking = Promise.all([
+		exists(targetPath),
+		getTemplate(flags.template),
+		getInfo(input, flags)
+	]);
 
 	return Promise.resolve(checking)
 		.then(results => {
@@ -32,24 +31,24 @@ function create(input, flags) {
 				spinner.fail();
 				throw new Error(`managed-error`);
 			}
-			return [targetPath, results[1]];
+			return [results[1], results[2]];
 		})
 		.then(results => {
 			const info = results[1];
 			info['tipi:version'] = pkg.version;
-			info['tipi:template'] = variant;
+			info['tipi:template'] = template;
 			return [results[0], info];
 		})
 		.then(results => {
-			const targetPath = results[0];
+			const sourcePath = results[0];
 			const info = results[1];
-			spinner.text = `encamp ${variant} at ${input}`;
+			spinner.text = `encamp ${template} at ${input}`;
 			return copy(sourcePath, targetPath, {
 				transform: transform(info)
 			});
 		})
 		.then(() => {
-			spinner.text = `encamped ${variant} at ${input}`;
+			spinner.text = `encamped ${template} at ${input}`;
 			spinner.succeed();
 		})
 		.catch(err => {

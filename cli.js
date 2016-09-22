@@ -8,8 +8,14 @@ const info = require('./info');
 
 const knownCommands = ['create', 'info', 'update'];
 const knownFlags = [
-	'cli', 'node', 'description', 'author', 'email', 'name', 'safeName',
-	'user', 'year', 'description'
+	'author',
+	'description',
+	'email',
+	'name',
+	'safeName',
+	'template',
+	'user',
+	'year'
 ];
 const unknownFlags = [];
 const isKnownCommmand = flag => includes(flag, knownCommands);
@@ -26,15 +32,16 @@ const cli = meow(`
 	  update [name]  - update current project or at [name]
 
 	Options
-	  --cli          Use cli template
-	  --node         Use node template (default: true)
 	  --author       Full name of author (default: git configuration),
-	  --email        E-mail of author (default: git configuration)
-	  --name         Name of library (default: [name])
-	  --safeName     JS name to use (default camelCase(name)),
-	  --user         Github username of auth (default: determined),
-	  --year         Year of creation (default: current year),
+	  --cli          Use cli template
 	  --description  Description to use in meta data
+	  --email        E-mail of author defaults to git configuration.user.email
+	  --name         Name of library defaults to [name]
+	  --node         Use node template, defaults to true
+	  --safeName     JS name to use, defaults to camelCased [name],
+		--template     Specify the tipi-template-[template] to use, default to node
+	  --user         Github username of author (default: computed),
+	  --year         Year of creation (default: current year),
 
 	Examples
 	  $ tipi create library
@@ -44,13 +51,21 @@ const cli = meow(`
 	  # create a node cli project at cli
 `, {
 	alias: {
-		c: ['cli'],
 		d: ['description'],
 		h: ['help'],
-		n: ['node']
+		t: ['template']
 	},
 	boolean: ['cli', 'node', 'help'],
-	string: ['description', 'author', 'email', 'name', 'safeName', 'user', 'year', 'description'],
+	string: [
+		'author',
+		'description',
+		'email',
+		'name',
+		'safeName',
+		'template',
+		'user',
+		'year'
+	],
 	unknown(flag) {
 		const isFlag = flag.charAt(0) === '-';
 		if (isFlag && !isKnownFlag(flag) && !isKnownUnknown(flag)) {
