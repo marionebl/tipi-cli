@@ -2,6 +2,7 @@ const assert = require('assert');
 const path = require('path');
 const exists = require('path-exists');
 const entries = require('lodash').entries;
+const includes = require('lodash/fp').includes;
 const ora = require('ora');
 const replaceStream = require('replacestream');
 const ncp = require('ncp');
@@ -15,7 +16,7 @@ const variants = ['cli', 'node'];
 
 function create(input, flags) {
 	assert(input, 'target directory must be specified for <create>');
-	const variant = entries(flags).find(entry => variants.includes(entry[0]) && entry[1]) || 'node';
+	const variant = entries(flags).find(entry => includes(entry[0], variants) && entry[1]) || 'node';
 	const sourcePath = path.resolve(__dirname, variant);
 	const targetPath = path.resolve(cwd, input);
 	const spinner = ora().start();

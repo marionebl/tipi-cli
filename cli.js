@@ -2,9 +2,9 @@
 const meow = require('meow');
 const entries = require('lodash').entries;
 const padEnd = require('lodash/fp').padEnd;
+const includes = require('lodash/fp').includes;
 const create = require('./create');
 const info = require('./info');
-const update = require('./update');
 
 const knownCommands = ['create', 'info', 'update'];
 const knownFlags = [
@@ -12,6 +12,9 @@ const knownFlags = [
 	'user', 'year', 'description'
 ];
 const unknownFlags = [];
+const isKnownCommmand = flag => includes(flag, knownCommands);
+const isKnownFlag = flag => includes(flag, knownFlags);
+const isKnownUnknown = flag => includes(flag, unknownFlags);
 
 const cli = meow(`
 	Usage
@@ -50,9 +53,7 @@ const cli = meow(`
 	string: ['description', 'author', 'email', 'name', 'safeName', 'user', 'year', 'description'],
 	unknown(flag) {
 		const isFlag = flag.charAt(0) === '-';
-		const isKnownFlag = knownFlags.includes(flag);
-		const isKnownUnknown = unknownFlags.includes(flag);
-		if (isFlag && !isKnownFlag && !isKnownUnknown) {
+		if (isFlag && !isKnownFlag(flag) && !isKnownUnknown(flag)) {
 			unknownFlags.push(flag);
 		}
 	}
@@ -60,7 +61,7 @@ const cli = meow(`
 
 main(cli.input[0], cli.flags, cli.input[1])
 	.catch(error => {
-		if (error.message === 'managed-error') {
+		if (!error || error.message === 'managed-error') {
 			process.exit(1); // eslint-disable-line xo/no-process-exit
 		}
 		setTimeout(() => {
@@ -75,20 +76,20 @@ function main(command, flags, input) {
 	}
 
 	if (!command) {
-		console.error(`<command> parameter is required`);
-		cli.showHelp(1);
+		console.log(cli.help);
+		console.error(`\n<command> parameter is required`);
 		return Promise.reject();
 	}
 
-	if (!knownCommands.includes(command)) {
-		console.error(`unknown <command> ${command}. known commands ${knownCommands.join(', ')}`);
-		cli.showHelp(1);
+	if (!isKnownCommmand(command)) {
+		console.log(cli.help);
+		console.error(`\nunknown <command> ${command}. known commands ${knownCommands.join(', ')}`);
 		return Promise.reject();
 	}
 
 	if (unknownFlags.length) {
-		console.error(`unknown [options] ${unknownFlags.join(', ')}. known options ${knownFlags.join(', ')}`);
-		cli.showHelp(1);
+		console.log(cli.help);
+		console.error(`\nunknown [options] ${unknownFlags.join(', ')}. known options: ${knownFlags.join(', ')}`);
 		return Promise.reject();
 	}
 
@@ -108,9 +109,11 @@ function main(command, flags, input) {
 				.catch(reject);
 		}
 		if (command === 'update') {
-			return update(input, flags).then(resolve).catch(reject);
+			console.error('<update> is not implemented yet.');
+			process.exit(1);
 		}
-		console.error(`unknown <command> ${command}. known commands ${knownCommands.join(', ')}`);
-		cli.showHelp(1);
+
+		console.log(cli.help);
+		console.error(`\nunknown <command> ${command}. known commands ${knownCommands.join(', ')}`);
 	});
 }
