@@ -50,6 +50,14 @@ Project scaffolding for the entitled JavaScript developer
     # create a node cli project at cli
 ```
 
+## Templates
+
+`tipi-cli` uses npm-published [templates][8] for scaffolding.
+Templates maintainted by the core project are:
+
+* [cli](packages/cli)   - generic cli project template
+* [node](packages/node) - generic node project template
+
 ---
 Built by (c) Mario Nebl. Released under the MIT license.
 
@@ -61,3 +69,4 @@ Built by (c) Mario Nebl. Released under the MIT license.
 [5]: https://ci.appveyor.com/project/marionebl/tipi-cli
 [6]: https://img.shields.io/npm/v/tipi-cli.svg?style=flat-square
 [7]: https://npmjs.org/package/tipi-cli
+[8]: https://www.npmjs.com/search?q=tipi-template

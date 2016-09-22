@@ -1,13 +1,12 @@
-const getFullName = require('git-username');
 const getEmail = require('git-user-email');
 const getUser = require('github-username');
+const getUsername = require('username');
 const camelCase = require('lodash').camelCase;
 const merge = require('lodash').merge;
 
 module.exports = info;
 
 function info(name, flags) {
-	const author = getFullName();
 	const email = getEmail();
 	const safeName = camelCase(name);
 
@@ -28,7 +27,7 @@ function info(name, flags) {
 	return determine
 		.then(user => {
 			return merge({
-				author: author || user,
+				author: user || getUsername.sync(),
 				email: email,
 				name: name,
 				safeName: safeName,
