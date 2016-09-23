@@ -36,6 +36,8 @@ function info(name, flags) {
 			}, explicit);
 		})
 		.catch(() => {
-			throw new Error('Could not determine GitHub username. Please specify explicitly via --user');
+			const error = new Error('Could not determine GitHub username. Please specify explicitly via --user');
+			error.managed = true;
+			throw error;
 		});
 }

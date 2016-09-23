@@ -78,7 +78,7 @@ const cli = meow(`
 
 main(cli.input[0], cli.flags, cli.input[1])
 	.catch(err => {
-		if (!err || err.message === 'managed-error') {
+		if (!err || err.managed) {
 			process.exit(1); // eslint-disable-line xo/no-process-exit
 		}
 		setTimeout(() => {

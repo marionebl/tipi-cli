@@ -19,7 +19,7 @@ function create(input, flags) {
 
 	const checking = Promise.all([
 		exists(targetPath),
-		getTemplate(flags.template),
+		getTemplate(flags.template || 'node'),
 		getInfo(input, flags)
 	]);
 
@@ -27,9 +27,9 @@ function create(input, flags) {
 		.then(results => {
 			const targetExists = results[0];
 			if (targetExists) {
-				spinner.text = `${targetPath} already exists, aborting <create>`;
-				spinner.fail();
-				throw new Error(`managed-error`);
+				const error = new Error(`${targetPath} already exists, aborting <create>`);
+				error.managed = true;
+				throw error;
 			}
 			return [results[1], results[2]];
 		})
@@ -52,8 +52,11 @@ function create(input, flags) {
 			spinner.succeed();
 		})
 		.catch(err => {
-			spinner.text = err.message;
-			spinner.fail();
+			if (err.managed) {
+				spinner.text = err.message;
+				spinner.fail();
+			}
+			throw err;
 		});
 }
 
