@@ -1,6 +1,6 @@
 {
   "name": "tipi-cli",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Project scaffolding for the entitled JavaScript developer",
   "bin": {
     "tipi": "./cli.js"
