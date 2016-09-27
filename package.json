@@ -1,49 +1,12 @@
 {
-  "name": "tipi-cli",
-  "version": "2.0.2",
-  "description": "Project scaffolding for the entitled JavaScript developer",
-  "bin": {
-    "tipi": "./cli.js"
-  },
-  "scripts": {
-    "start": "npm run test -- --watch",
-    "test": "xo *.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marionebl/tipi-cli.git"
-  },
-  "keywords": [
-    "tipi",
-    "scaffolding",
-    "generator"
-  ],
-  "author": "Mario Nebl <hello@herebecode.com>",
+  "name": "tipi",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/marionebl/tipi-cli/issues"
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap"
   },
-  "homepage": "https://github.com/marionebl/tipi-cli#readme",
   "devDependencies": {
+    "lerna": "2.0.0-beta.27",
     "xo": "0.16.0"
-  },
-  "dependencies": {
-    "denodeify": "1.2.1",
-    "execa": "0.4.0",
-    "git-user-email": "0.2.1",
-    "git-username": "0.4.0",
-    "github-username": "3.0.0",
-    "lodash": "4.16.1",
-    "meow": "3.7.0",
-    "mz": "2.4.0",
-    "ncp": "2.0.0",
-    "npm-package-arg": "4.2.0",
-    "npmdl": "1.0.2",
-    "ora": "0.3.0",
-    "package-json": "2.4.0",
-    "path-exists": "3.0.0",
-    "replacestream": "4.0.2",
-    "semver": "5.3.0",
-    "username": "2.2.2"
   }
 }

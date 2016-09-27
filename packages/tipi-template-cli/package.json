@@ -1,7 +1,8 @@
 {
-  "name": "tipi-template-node",
-  "version": "1.0.0",
+  "name": "tipi-template-cli",
+  "version": "2.0.0",
   "description": "tipi template for node cli project",
+  "files": ["template/"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marionebl/tipi-cli.git"
