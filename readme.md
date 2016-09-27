@@ -60,6 +60,13 @@ Templates maintainted by the core project are:
 * [cli](packages/cli)   - generic cli project template
 * [node](packages/node) - generic node project template
 
+## Development
+
+```
+npm install
+npm run bootstrap
+```
+
 ---
 Built by (c) Mario Nebl. Released under the MIT license.
 
