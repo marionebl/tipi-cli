@@ -64,7 +64,7 @@ Templates maintainted by the core project are:
 
 ```
 npm install
-npm run bootstrap
+npm run lerna bootstrap
 ```
 
 ---
