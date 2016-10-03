@@ -49,7 +49,7 @@ function downloadPackage(name, version) {
 	return new Promise((resolve, reject) => {
 		const dir = path.resolve(os.tmpdir());
 		const result = path.resolve(dir, name, version, 'package', 'template');
-		npdl(dir)(name, version, 'package.json', err => {
+		npdl(result)(name, version, 'package.json', err => {
 			if (err) {
 				reject(err);
 			}
