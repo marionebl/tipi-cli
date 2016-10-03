@@ -43,7 +43,6 @@ function create(input, flags) {
 			const sourcePath = `${results[0]}/`;
 			const info = results[1];
 			spinner.text = `encamp ${template} at ${input}`;
-			console.log({sourcePath, targetPath});
 			return copy(sourcePath, targetPath, {
 				transform: transform(info)
 			});
