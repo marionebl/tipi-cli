@@ -40,9 +40,10 @@ function create(input, flags) {
 			return [results[0], info];
 		})
 		.then(results => {
-			const sourcePath = results[0];
+			const sourcePath = `${results[0]}/`;
 			const info = results[1];
 			spinner.text = `encamp ${template} at ${input}`;
+			console.log({sourcePath, targetPath});
 			return copy(sourcePath, targetPath, {
 				transform: transform(info)
 			});
