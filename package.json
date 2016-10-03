@@ -3,6 +3,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "lerna": "lerna",
     "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
