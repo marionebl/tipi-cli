@@ -1,3 +1,10 @@
+<a name="3.1.0"></a>
+# v3.1.0 (2016-11-03)
+
+* docs: add changelog ([eb4a4ed](https://github.com/marionebl/tipi-cli/commit/eb4a4ed))
+* feat: allow local paths to be used as template ([4b349d4](https://github.com/marionebl/tipi-cli/commit/4b349d4))
+* chore(package): update xo to version 0.17.0 (#8) ([e3350fb](https://github.com/marionebl/tipi-cli/commit/e3350fb))
+
 <a name="3.0.3"></a>
 ## 3.0.3 (2016-10-03)
 
