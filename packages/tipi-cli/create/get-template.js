@@ -1,6 +1,8 @@
+const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const packageJson = require('package-json');
+const pIf = require('p-if');
 const npa = require('npm-package-arg');
 const npdl = require('npmdl');
 const values = require('lodash').values;
@@ -9,6 +11,18 @@ const semver = require('semver');
 module.exports = getTemplate;
 
 function getTemplate(name) {
+	const isLocalPath = name.charAt(0) === '.';
+
+	return Promise.resolve()
+		.then(pIf(isLocalPath, () => getDirectoryTemplate(name), () => getNpmTemplate(name)));
+}
+
+function getDirectoryTemplate(name) {
+	return Promise.resolve()
+		.then(() => path.resolve(process.cwd(), name));
+}
+
+function getNpmTemplate(name) {
 	const templateName = `tipi-template-${name}`;
 	const parsed = npa(templateName);
 

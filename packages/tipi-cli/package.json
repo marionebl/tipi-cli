@@ -37,6 +37,7 @@
     "npm-package-arg": "4.2.0",
     "npmdl": "1.0.2",
     "ora": "0.3.0",
+    "p-if": "1.1.0",
     "package-json": "2.4.0",
     "path-exists": "3.0.0",
     "replacestream": "4.0.2",
