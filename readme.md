@@ -57,8 +57,8 @@ tipi-cli --help
 `tipi-cli` uses npm-published [templates][8] for scaffolding.
 Templates maintainted by the core project are:
 
-* [cli](packages/cli)   - generic cli project template
-* [node](packages/node) - generic node project template
+* [cli](https://github.com/marionebl/tipi-cli/tree/master/packages/tipi-template-cli)   - generic cli project template
+* [node](https://github.com/marionebl/tipi-cli/tree/master/packages/tipi-template-node) - generic node project template
 
 ## Development
 
