@@ -2,6 +2,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const packageJson = require('package-json');
+const pathIsAbsolute = require('path-is-absolute');
 const pIf = require('p-if');
 const npa = require('npm-package-arg');
 const npdl = require('npmdl');
@@ -11,7 +12,7 @@ const semver = require('semver');
 module.exports = getTemplate;
 
 function getTemplate(name) {
-	const isLocalPath = name.charAt(0) === '.';
+	const isLocalPath = name.charAt(0) === '.' || pathIsAbsolute(name);
 
 	return Promise.resolve()
 		.then(pIf(isLocalPath, () => getDirectoryTemplate(name), () => getNpmTemplate(name)));
