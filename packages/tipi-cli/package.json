@@ -40,6 +40,7 @@
     "p-if": "1.1.0",
     "package-json": "2.4.0",
     "path-exists": "3.0.0",
+    "path-is-absolute": "^1.0.1",
     "replacestream": "4.0.2",
     "semver": "5.3.0",
     "username": "2.2.2"
