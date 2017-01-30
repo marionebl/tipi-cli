@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "lerna": "2.0.0-beta.28",
-    "lerna-changelog": "0.2.3",
+    "lerna-changelog": "0.3.0",
     "xo": "0.17.1"
   }
 }
